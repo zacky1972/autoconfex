@@ -35,7 +35,7 @@ defmodule Autoconfex.MixProject do
   defp docs do
     [
       main: "Autoconfex",
-      extras: ["README.md"]
+      extras: ["README.md", "LICENSE"]
     ]
   end
 end
