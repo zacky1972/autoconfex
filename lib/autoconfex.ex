@@ -1,6 +1,6 @@
 defmodule Autoconfex do
   @moduledoc """
-  Documentation for `Autoconfex`.
+  Autoconfex: Auto-configuration of NIFs in C for Elixir.
   """
 
   @doc """

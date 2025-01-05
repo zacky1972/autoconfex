@@ -1,6 +1,6 @@
 # Autoconfex
 
-**TODO: Add description**
+Autoconfex: Auto-configuration of NIFs in C for Elixir.
 
 ## Installation
 
