@@ -3,6 +3,23 @@ defmodule Autoconfex do
   Autoconfex: Auto-configuration of NIFs in C for Elixir.
   """
 
+  @doc """
+  Returns `true` if the given `executable` can compile the given `source_code` with the given `args`.
+  """
+  @spec compilable?(binary(), binary(), binary(), list(binary())) :: boolean()
+  def compilable?(executable, base, source_code, args) do
+    case File.write(Path.join("/tmp", base), source_code) do
+      :ok ->
+        case execute(executable, args, cd: "/tmp", stderr_to_stdout: true) do
+          {_, 0} -> true
+          _ -> false
+        end
+
+      _ ->
+        false
+    end
+  end
+
   @doc ~S"""
   Execute the given `executable` with `args`, if the `executable` can be located on the system.
 
