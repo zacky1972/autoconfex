@@ -10,7 +10,7 @@ defmodule Autoconfex.MixProject do
       elixir: "~> 1.16",
       start_permanent: Mix.env() == :prod,
       deps: deps(),
-      description: "Autoconfex: Auto-configuration of NIFs in C for Elixir.",
+      description: description(),
 
       # Dialyzer
       dialyzer: [
@@ -44,6 +44,10 @@ defmodule Autoconfex.MixProject do
       {:dialyxir, "~> 1.4", only: [:dev, :test], runtime: false},
       {:ex_doc, "~> 0.34", only: :dev, runtime: false}
     ]
+  end
+
+  defp description do
+    "Autoconfex: Auto-configuration of NIFs in C for Elixir."
   end
 
   defp docs do
