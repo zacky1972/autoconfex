@@ -12,6 +12,15 @@ def deps do
 end
 ```
 
+## Supported Platforms
+
+### Tested Platforms by CI
+
+* Elixir 1.16, 1.17, 1.18
+* Erlang/OTP 25, 26, 27
+* OS/Distribution
+  * Linux/Ubuntu 22.04
+
 ## License
 
 Copyright (c) 2025 University of Kitakyushu
