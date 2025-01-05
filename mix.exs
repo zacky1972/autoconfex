@@ -1,6 +1,8 @@
 defmodule Autoconfex.MixProject do
   use Mix.Project
 
+  @source_url "https://github.com/zacky1972/autoconfex"
+
   def project do
     [
       app: :autoconfex,
@@ -8,6 +10,7 @@ defmodule Autoconfex.MixProject do
       elixir: "~> 1.16",
       start_permanent: Mix.env() == :prod,
       deps: deps(),
+      description: "Autoconfex: Auto-configuration of NIFs in C for Elixir.",
 
       # Dialyzer
       dialyzer: [
@@ -17,8 +20,11 @@ defmodule Autoconfex.MixProject do
 
       # Docs
       name: "Autoconfex",
-      source_url: "https://github.com/zacky1972/autoconfex",
-      docs: &docs/0
+      source_url: @source_url,
+      docs: &docs/0,
+
+      # Package
+      package: &package/0
     ]
   end
 
@@ -44,6 +50,14 @@ defmodule Autoconfex.MixProject do
     [
       main: "Autoconfex",
       extras: ["README.md", "LICENSE"]
+    ]
+  end
+
+  defp package do
+    [
+      name: "autoconfex",
+      licenses: ["Apache-2.0"],
+      links: %{"GitHub" => @source_url}
     ]
   end
 end
