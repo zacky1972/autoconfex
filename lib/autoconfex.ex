@@ -39,7 +39,8 @@ defmodule Autoconfex do
   end
 
   @doc """
-  Returns `true` if the given `executable` can compile the given `source_code` with the given `args`.
+  Returns `true` if the given `executable` can compile the given `source_code`,
+  which will be created on the path joining `/tmp` and `base`, with the given `args`.
   """
   @spec compilable?(binary(), binary(), binary(), list(binary())) :: boolean()
   def compilable?(executable, base, source_code, args) do
