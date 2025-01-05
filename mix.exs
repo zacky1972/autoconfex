@@ -21,10 +21,10 @@ defmodule Autoconfex.MixProject do
       # Docs
       name: "Autoconfex",
       source_url: @source_url,
-      docs: &docs/0,
+      docs: docs(),
 
       # Package
-      package: &package/0
+      package: package()
     ]
   end
 
