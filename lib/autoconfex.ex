@@ -4,6 +4,41 @@ defmodule Autoconfex do
   """
 
   @doc """
+  Returns `true` if the given `c_compiler` can compile the given `source_code` with the given `options`.
+
+  `c_compiler` assumes to be option-compatible with GCC and Clang.
+
+  ## Examples
+
+      iex> Autoconfex.compilable_by_cc?(
+      ...>   "gcc",
+      ...>   \"""
+      ...>   int main(int argc, char *argv[])
+      ...>   {
+      ...>      return 0;
+      ...>   }
+      ...>   \"""
+      ...> )
+      true
+  """
+  @spec compilable_by_cc?(binary(), binary(), list(binary())) :: boolean()
+  def compilable_by_cc?(c_compiler, source_code, options \\ []) do
+    base_root = :crypto.strong_rand_bytes(10) |> Base.encode32(case: :lower)
+    base = base_root <> ".c"
+
+    base_args =
+      [
+        "-Werror",
+        "-Wall",
+        base,
+        "-o",
+        base_root
+      ]
+
+    compilable?(c_compiler, base, source_code, options ++ base_args)
+  end
+
+  @doc """
   Returns `true` if the given `executable` can compile the given `source_code` with the given `args`.
   """
   @spec compilable?(binary(), binary(), binary(), list(binary())) :: boolean()
