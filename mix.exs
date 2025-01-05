@@ -9,6 +9,12 @@ defmodule Autoconfex.MixProject do
       start_permanent: Mix.env() == :prod,
       deps: deps(),
 
+      # Dialyzer
+      dialyzer: [
+        plt_local_path: "priv/plts/project.plt",
+        plt_core_path: "priv/plts/core.plt"
+      ],
+
       # Docs
       name: "Autoconfex",
       source_url: "https://github.com/zacky1972/autoconfex",
